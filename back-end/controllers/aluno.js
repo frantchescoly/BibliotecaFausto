@@ -1,6 +1,7 @@
 const Aluno= require('../models/Aluno')
 const controller ={}
 
+//Teste de commit;
 controller.novo = async function(req,res){
     try{
         await Aluno.create(req.body)
