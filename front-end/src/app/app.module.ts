@@ -32,6 +32,8 @@ import { ProfessorFormComponent } from './professor/professor-form/professor-for
 import { NgxMaskModule } from 'ngx-mask';
 import { TurmaListComponent } from './turma/turma-list/turma-list.component';
 import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
+import { AlunoFormComponent } from './aluno/aluno-form/aluno-form.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
     ConfirmDlgComponent,
     ProfessorFormComponent,
     TurmaListComponent,
-    TurmaFormComponent
+    TurmaFormComponent,
+    AlunoFormComponent,
   ],
   imports: [
     HttpClientModule,
