@@ -1,5 +1,4 @@
-const mongoose = require('mongoose')
-
+const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
 
@@ -10,18 +9,16 @@ const schema = mongoose.Schema({
     aluno:{
         type: mongoose.ObjectId,
         ref: 'Aluno'
-        
-
     },
     funcionario:{
         type: mongoose.ObjectId,
         ref: 'Funcionario'
-        
     },
     dataDev:{
         type:Date,
         require:true
     },
 
-})
-module.exports = mongoose.model('Emprestimo',schema,'emprestimos')
+});
+
+module.exports = mongoose.model('Emprestimo',schema,'emprestimos');

@@ -27,12 +27,17 @@ import { MainMenuComponent } from './ui/main-menu/main-menu.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { ProfessorListComponent } from './professor/professor-list/professor-list.component';
 import { ConfirmDlgComponent } from './ui/confirm-dlg/confirm-dlg.component';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatTableModule } from '@angular/material';
 import { ProfessorFormComponent } from './professor/professor-form/professor-form.component'
 import { NgxMaskModule } from 'ngx-mask';
 import { TurmaListComponent } from './turma/turma-list/turma-list.component';
 import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
 import { AlunoFormComponent } from './aluno/aluno-form/aluno-form.component';
+import { AlunoListComponent } from './aluno/aluno-list/aluno-list.component';
+import { BibliotecariaFormComponent } from './bibliotecaria/bibliotecaria-form/bibliotecaria-form.component';
+import { BibliotecariaListComponent } from './bibliotecaria/bibliotecaria-list/bibliotecaria-list.component';
+import { EmprestimoFormComponent } from './emprestimo/emprestimo-form/emprestimo-form.component';
+import { EmprestimoListComponent } from './emprestimo/emprestimo-list/emprestimo-list.component';
 
 
 @NgModule({
@@ -47,6 +52,11 @@ import { AlunoFormComponent } from './aluno/aluno-form/aluno-form.component';
     TurmaListComponent,
     TurmaFormComponent,
     AlunoFormComponent,
+    AlunoListComponent,
+    BibliotecariaFormComponent,
+    BibliotecariaListComponent,
+    EmprestimoFormComponent,
+    EmprestimoListComponent,
   ],
   imports: [
     HttpClientModule,
@@ -56,6 +66,7 @@ import { AlunoFormComponent } from './aluno/aluno-form/aluno-form.component';
     BrowserAnimationsModule,
     MaterialModule,
     MatDialogModule,
+    MatTableModule,
     NgxMaskModule.forRoot(),
     /**** Datas em português no MatDatepicker  ****/
     MatMomentDateModule

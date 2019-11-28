@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProfessorListComponent } from './professor/professor-list/professor-list.component';
+import { AlunoListComponent } from './aluno/aluno-list/aluno-list.component';
 import { AlunoFormComponent } from './aluno/aluno-form/aluno-form.component';
-import { TurmaListComponent } from './turma/turma-list/turma-list.component';
-import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
+import { BibliotecariaListComponent } from './bibliotecaria/bibliotecaria-list/bibliotecaria-list.component';
+import { BibliotecariaFormComponent } from './bibliotecaria/bibliotecaria-form/bibliotecaria-form.component';
+import { EmprestimoListComponent } from './emprestimo/emprestimo-list/emprestimo-list.component';
+import { EmprestimoFormComponent } from './emprestimo/emprestimo-form/emprestimo-form.component';
 
 const routes: Routes = [
-  { path: 'aluno', component: ProfessorListComponent },
+  { path: 'aluno', component: AlunoListComponent },
   { path: 'aluno/novo', component: AlunoFormComponent },
   { path: 'aluno/:id', component: AlunoFormComponent },
 
-  { path: 'turma', component: TurmaListComponent },
-  { path: 'turma/novo', component: TurmaFormComponent },
-  { path: 'turma/:id', component: TurmaFormComponent }
+  { path: 'bibliotecaria', component: BibliotecariaListComponent },
+  { path: 'bibliotecaria/novo', component: BibliotecariaFormComponent },
+  { path: 'bibliotecaria/:id', component: BibliotecariaFormComponent },
+
+  { path: 'emprestimo', component: EmprestimoListComponent },
+  { path: 'emprestimo/novo', component: EmprestimoFormComponent },
+  { path: 'emprestimo/:id', component: EmprestimoFormComponent }
 ];
 
 @NgModule({
