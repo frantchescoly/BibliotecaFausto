@@ -12,6 +12,8 @@ var app = express();
 const database = require('./config/database');
 const biblioteca = 'mongodb://localhost:27017/biblioteca';
 database(biblioteca);
+const cors = require('cors');
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,27 +31,27 @@ app.use('/users', usersRouter);
 
 
 const aluno = require('./routes/aluno')
-app.use('/aluno',aluno)
+app.use('/aluno', aluno)
 
 const funcionario = require('./routes/funcionario')
 app.use('/funcionario', funcionario)
 
 const ativo = require('./routes/ativo')
-app.use('/ativo',ativo)
+app.use('/ativo', ativo)
 
 const editora = require('./routes/editora')
-app.use('/editora',editora)
+app.use('/editora', editora)
 
 const emprestimo = require('./routes/emprestimo')
-app.use('/emprestimo',emprestimo)
+app.use('/emprestimo', emprestimo)
 
 const itensEmprestimo = require('./routes/itensEmprestimo')
-app.use('/itensEmprestimo',itensEmprestimo)
+app.use('/itensEmprestimo', itensEmprestimo)
 
 const local = require('./routes/local')
-app.use('/local',local)
+app.use('/local', local)
 
 const endereco = require('./routes/endereco')
-app.use('/endereco',endereco)
+app.use('/endereco', endereco)
 
 module.exports = app;

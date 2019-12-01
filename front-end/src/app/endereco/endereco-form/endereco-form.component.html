@@ -1,0 +1,44 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+    <mat-form-field>
+        <input matInput placeholder="Tipo de Logradouro" required [(ngModel)]="endereco.tipoLogradouro"
+            name="tipoLogradouro">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Logradouro" required [(ngModel)]="endereco.logradouro" name="logradouro">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Número" required [(ngModel)]="endereco.numero" name="numero">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Bairro" required [(ngModel)]="endereco.bairro" name="bairro">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Cidade" required [(ngModel)]="endereco.cidade" name="cidade">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="UF" required [(ngModel)]="endereco.uf" name="uf">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="CEP" required [(ngModel)]="endereco.cep" name="cep" mask="00.000-000">
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</form>

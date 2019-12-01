@@ -9,7 +9,7 @@ export class BibliotecariaService {
 
   constructor(private http: HttpClient) { }
 
-  private endPoint: string = 'bibliotecaria';
+  private endPoint: string = 'funcionario';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();

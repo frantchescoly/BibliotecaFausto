@@ -38,6 +38,13 @@ import { BibliotecariaFormComponent } from './bibliotecaria/bibliotecaria-form/b
 import { BibliotecariaListComponent } from './bibliotecaria/bibliotecaria-list/bibliotecaria-list.component';
 import { EmprestimoFormComponent } from './emprestimo/emprestimo-form/emprestimo-form.component';
 import { EmprestimoListComponent } from './emprestimo/emprestimo-list/emprestimo-list.component';
+import { EnderecoFormComponent } from './endereco/endereco-form/endereco-form.component';
+import { EditoraFormComponent } from './editora/editora-form/editora-form.component';
+import { EditoraListComponent } from './editora/editora-list/editora-list.component';
+import { LocalFormComponent } from './local/local-form/local-form.component';
+import { LocalListComponent } from './local/local-list/local-list.component';
+import { AtivoFormComponent } from './ativo/ativo-form/ativo-form.component';
+import { AtivoListComponent } from './ativo/ativo-list/ativo-list.component';
 
 
 @NgModule({
@@ -57,6 +64,13 @@ import { EmprestimoListComponent } from './emprestimo/emprestimo-list/emprestimo
     BibliotecariaListComponent,
     EmprestimoFormComponent,
     EmprestimoListComponent,
+    EnderecoFormComponent,
+    EditoraFormComponent,
+    EditoraListComponent,
+    LocalFormComponent,
+    LocalListComponent,
+    AtivoFormComponent,
+    AtivoListComponent,
   ],
   imports: [
     HttpClientModule,

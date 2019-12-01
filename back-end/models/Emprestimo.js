@@ -8,11 +8,13 @@ const schema = mongoose.Schema({
     },
     aluno:{
         type: mongoose.ObjectId,
-        ref: 'Aluno'
+        ref: 'Aluno',
+        required: true
     },
     funcionario:{
         type: mongoose.ObjectId,
-        ref: 'Funcionario'
+        ref: 'Funcionario',
+        required: true
     },
     dataDev:{
         type:Date,

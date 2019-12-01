@@ -58,7 +58,6 @@ controller.atualizar = async function(req,res){
         res.sendStatus(500).end()
 
     }
-    con
 }
 controller.excluir = async function (req,res){
     const id = req.body._id

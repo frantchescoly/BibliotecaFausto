@@ -5,18 +5,14 @@ import { environment as env } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class AlunoService {
+export class EnderecoService {
 
   constructor(private http: HttpClient) { }
 
-  private endPoint : string = 'aluno';
+  private endPoint : string = 'endereco';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();
-  }
-
-  listarEnd() {
-    return this.http.get(env.apiUri + 'endereco').toPromise();
   }
 
   excluir(id: string) {
@@ -26,15 +22,15 @@ export class AlunoService {
       {body: {_id: id}}).toPromise();
   }
 
-  novo(aluno: any) {
-    return this.http.post(env.apiUri + this.endPoint, aluno).toPromise();
+  novo(endereco: any) {
+    return this.http.post(env.apiUri + this.endPoint, endereco).toPromise();
   }
 
   obterUm(id: string) {
     return this.http.get(env.apiUri + this.endPoint + '/' + id).toPromise();
   }
 
-  atualizar(aluno: any) {
-    return this.http.put(env.apiUri + this.endPoint, aluno).toPromise();
+  atualizar(endereco: any) {
+    return this.http.put(env.apiUri + this.endPoint, endereco).toPromise();
   }
 }

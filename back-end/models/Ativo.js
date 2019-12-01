@@ -21,7 +21,7 @@ const schema = mongoose.Schema({
         type:String
     },
     ano:{
-        type:Date
+        type:String
 
     },
     edicao:{
@@ -35,13 +35,10 @@ const schema = mongoose.Schema({
         require:true
 
     },
-
     local:{
         type: mongoose.ObjectId,
         ref: 'Local', 
-        require:true
-        
     }
 
 })
-module.exports = mongoose.model('Ativo',schema,'ativo')
+module.exports = mongoose.model('Ativo',schema,'ativos')

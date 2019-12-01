@@ -1,0 +1,68 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+    <mat-form-field>
+        <input matInput placeholder="Tipo de Ativo" required [(ngModel)]="ativo.tipo" name="tipo">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Nome" required [(ngModel)]="ativo.nome" name="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Autor" required [(ngModel)]="ativo.autor" name="autor">
+    </mat-form-field>
+
+    <!-- Editora -->
+    <mat-form-field>
+        <mat-select placeholder="Editora" required [(ngModel)]="ativo.editora" name="editora">
+            <mat-option *ngFor="let editora of editoras" [value]="editora._id">
+                {{ editora.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Ano" required [(ngModel)]="ativo.ano" name="ano">
+            <mat-option *ngFor="let ano of anos" [value]="ano.year">
+                {{ ano.year }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Local" required [(ngModel)]="ativo.local" name="local">
+            <mat-option *ngFor="let local of locaisConcatenados" [value]="local.local">
+                {{ local.concatenado }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Edição" required [(ngModel)]="ativo.edicao" name="edicao">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Descrição" required [(ngModel)]="ativo.descricao" name="edicao">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="ISBN" required [(ngModel)]="ativo.isbn" name="isbn">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Tombo" required [(ngModel)]="ativo.tombo" name="tombo">
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</form>

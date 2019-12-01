@@ -3,33 +3,33 @@ import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
-import { AlunoService } from '../aluno.service';
+import { EnderecoService } from '../endereco.service';
 
 @Component({
-  selector: 'app-aluno-form',
-  templateUrl: './aluno-form.component.html',
-  styleUrls: ['./aluno-form.component.scss']
+  selector: 'app-endereco-form',
+  templateUrl: './endereco-form.component.html',
+  styleUrls: ['./endereco-form.component.scss']
 })
-export class AlunoFormComponent implements OnInit {
+export class EnderecoFormComponent implements OnInit {
 
   constructor(
-    private alunoSrv: AlunoService,
+    private enderecoSrv: EnderecoService,
     private router: Router,
     private actRoute: ActivatedRoute,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) { }
 
-  title: string = 'Novo Aluno';
-  aluno: any = {};
+  title: string = 'Novo Endereço';
+  endereco: any = {};
 
   async ngOnInit() {
     let params = this.actRoute.snapshot.params;
     if (params['id']) { // Se houver um parâmetro chamado id na rota
       try {
         // Busca os dados do professor e preenche a variável ligada ao form
-        this.aluno = await this.alunoSrv.obterUm(params['id']);
-        this.title = 'Editando aluno';
+        this.endereco = await this.enderecoSrv.obterUm(params['id']);
+        this.title = 'Editando endereço';
       }
       catch (error) {
         console.log(error);
@@ -40,18 +40,17 @@ export class AlunoFormComponent implements OnInit {
   async salvar(form: NgForm) {
     if (form.valid) {
       try {
-        let msg = 'Aluno criado com sucesso.';
+        let msg = 'Endereço criado com sucesso.';
 
-        if (this.aluno._id) { // Se tem _id, está editando
-          msg = 'Aluno atualizado com sucesso';
-          await this.alunoSrv.atualizar(this.aluno);
+        if (this.endereco._id) { // Se tem _id, está editando
+          msg = 'Endereço atualizado com sucesso';
+          await this.enderecoSrv.atualizar(this.endereco);
         }
-        else { // Criação de um novo aluno
-          await this.alunoSrv.novo(this.aluno);
+        else { // Criação de um novo endereco
+          await this.enderecoSrv.novo(this.endereco);
         }
 
         this.snackBar.open(msg, 'Entendi', { duration: 3000 });
-        this.router.navigate(['/aluno']); // Volta à listagem
       }
       catch (error) {
         console.log(error);
@@ -78,9 +77,9 @@ export class AlunoFormComponent implements OnInit {
     }
 
     if (result) {
-      this.router.navigate(['/aluno']); // Retorna à listagem
+      this.router.navigate(['/endereco']); // Retorna à listagem
     }
 
   }
-  
+
 }

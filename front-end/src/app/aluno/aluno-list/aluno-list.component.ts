@@ -17,7 +17,7 @@ export class AlunoListComponent implements OnInit {
   ) { }
 
   alunos: any = []; // Vetor vazio
-  displayedColumns: string[] = ['nome', 'nomeMae', 'endereco', 'telefone', 'celular', 'editar', 'excluir'];
+  displayedColumns: string[] = ['nome', 'nomeMae', 'endereco','editar', 'excluir'];
 
   async ngOnInit() {
     try {

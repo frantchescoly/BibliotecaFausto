@@ -1,0 +1,28 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+    <mat-form-field>
+        <input matInput placeholder="Nome" required [(ngModel)]="editora.nome" name="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="País" required [(ngModel)]="editora.pais" name="pais">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Telefone" required [(ngModel)]="editora.telefone" name="telefone"
+            mask="(00) 000000009">
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</form>

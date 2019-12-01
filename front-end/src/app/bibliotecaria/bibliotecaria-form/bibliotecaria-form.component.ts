@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
 import { BibliotecariaService } from '../bibliotecaria.service';
+import { EnderecoService } from '../../endereco/endereco.service';
 
 @Component({
   selector: 'app-bibliotecaria-form',
@@ -14,6 +15,7 @@ export class BibliotecariaFormComponent implements OnInit {
 
   constructor(
     private bibliotecariaSrv: BibliotecariaService,
+    private enderecoSrv: EnderecoService,
     private router: Router,
     private actRoute: ActivatedRoute,
     private dialog: MatDialog,
@@ -22,6 +24,7 @@ export class BibliotecariaFormComponent implements OnInit {
 
   title: string = 'Nova Bibliotecaria';
   bibliotecaria: any = {};
+  enderecos: any = [];
 
   async ngOnInit() {
     let params = this.actRoute.snapshot.params;

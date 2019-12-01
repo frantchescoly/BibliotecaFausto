@@ -17,25 +17,31 @@
     <!-- Aluno Column -->
     <ng-container matColumnDef="aluno">
         <th mat-header-cell *matHeaderCellDef> Aluno </th>
-        <td mat-cell *matCellDef="let emprestimo"> {{emprestimo.aluno}} </td>
+        <td mat-cell *matCellDef="let emprestimo"> {{emprestimo.aluno?.nome}} </td>
     </ng-container>
 
     <!-- dtEmpre Column -->
+    <!-- Horario Column (coluna calculada) -->
     <ng-container matColumnDef="dtEmpre">
-        <th mat-header-cell *matHeaderCellDef> Data de Emprestimo </th>
-        <td mat-cell *matCellDef="let emprestimo"> {{emprestimo.dtEmpre}} </td>
+        <th mat-header-cell *matHeaderCellDef> Data de Início</th>
+        <td mat-cell *matCellDef="let emprestimo">
+            {{emprestimo.dtEmpre | date:"dd/MM/yyyy" }}
+        </td>
     </ng-container>
 
     <!-- Bibliotecaria Column -->
     <ng-container matColumnDef="funcionario">
         <th mat-header-cell *matHeaderCellDef> Funcionário </th>
-        <td mat-cell *matCellDef="let emprestimo"> {{emprestimo.funcionario}} </td>
+        <td mat-cell *matCellDef="let emprestimo"> {{emprestimo.funcionario?.nome}} </td>
     </ng-container>
 
     <!-- dataDev Column -->
+    <!-- Horario Column (coluna calculada) -->
     <ng-container matColumnDef="dataDev">
         <th mat-header-cell *matHeaderCellDef> Data de Devolução </th>
-        <td mat-cell *matCellDef="let emprestimo"> {{emprestimo.dataDev}} </td>
+        <td mat-cell *matCellDef="let emprestimo">
+            {{emprestimo.dataDev | date:"dd/MM/yyyy" }}
+        </td>
     </ng-container>
 
     <!-- Editar Column -->

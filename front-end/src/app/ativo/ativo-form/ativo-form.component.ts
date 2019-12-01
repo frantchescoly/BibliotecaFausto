@@ -3,40 +3,42 @@ import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
-import { EmprestimoService } from '../emprestimo.service';
-import { BibliotecariaService } from '../../bibliotecaria/bibliotecaria.service';
-import { AlunoService } from '../../aluno/aluno.service';
+import { AtivoService } from '../ativo.service';
+import { EditoraService } from '../../editora/editora.service';
+import { LocalService } from '../../Local/Local.service';
 
 @Component({
-  selector: 'app-emprestimo-form',
-  templateUrl: './emprestimo-form.component.html',
-  styleUrls: ['./emprestimo-form.component.scss']
+  selector: 'app-ativo-form',
+  templateUrl: './ativo-form.component.html',
+  styleUrls: ['./ativo-form.component.scss']
 })
-
-export class EmprestimoFormComponent implements OnInit {
+export class AtivoFormComponent implements OnInit {
 
   constructor(
-    private emprestimoSrv: EmprestimoService,
-    private alunoSrv: AlunoService,
-    private bibliotecariasSrv: BibliotecariaService,
+    private ativoSrv: AtivoService,
+    private editoraSrv: EditoraService,
+    private localSrv: LocalService,
     private router: Router,
     private actRoute: ActivatedRoute,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) { }
 
-  title: string = 'Novo Emprestimo';
-  emprestimo: any = {};
-  alunos: any = [];
-  funcionarios: any = [];
+  title: string = 'Novo Ativo';
+  ativo: any = {};
+  editoras: any = [];
+  locais: any = [];
+  locaisConcatenados: any = [];
+  anos: any = [];
+
 
   async ngOnInit() {
     let params = this.actRoute.snapshot.params;
     if (params['id']) { // Se houver um parâmetro chamado id na rota
       try {
         // Busca os dados do professor e preenche a variável ligada ao form
-        this.emprestimo = await this.emprestimoSrv.obterUm(params['id']);
-        this.title = 'Editando emprestimo';
+        this.ativo = await this.ativoSrv.obterUm(params['id']);
+        this.title = 'Editando ativo';
       }
       catch (error) {
         console.log(error);
@@ -44,11 +46,19 @@ export class EmprestimoFormComponent implements OnInit {
     }
 
     // Entidades relacionadas
-    try{
-      this.alunos = await this.alunoSrv.listar();
-      this.funcionarios = await this.bibliotecariasSrv.listar();
+    try {
+      this.editoras = await this.editoraSrv.listar();
+      this.locais = await this.localSrv.listar();
+
+      for (let local = 0; local < this.locais.length; local++) {
+        this.locaisConcatenados.push({ local, concatenado: `Corredor:${this.locais[local].corredor}, estante:${this.locais[local].estante}, prateleira:${this.locais[local].prateleira}` });
+      }
+
+      for (let year = 1970; year <= 2019; year++) {
+        this.anos.push({ year });
+      }
     }
-    catch(error) {
+    catch (error) {
       console.log(error);
     }
   }
@@ -56,18 +66,18 @@ export class EmprestimoFormComponent implements OnInit {
   async salvar(form: NgForm) {
     if (form.valid) {
       try {
-        let msg = 'Emprestimo criado com sucesso.';
+        let msg = 'Ativo criado com sucesso.';
 
-        if (this.emprestimo._id) { // Se tem _id, está editando
-          msg = 'Emprestimo atualizado com sucesso';
-          await this.emprestimoSrv.atualizar(this.emprestimo);
+        if (this.ativo._id) { // Se tem _id, está editando
+          msg = 'Ativo atualizado com sucesso';
+          await this.ativoSrv.atualizar(this.ativo);
         }
-        else { // Criação de um novo emprestimo
-          await this.emprestimoSrv.novo(this.emprestimo);
+        else { // Criação de um novo ativo
+          await this.ativoSrv.novo(this.ativo);
         }
 
         this.snackBar.open(msg, 'Entendi', { duration: 3000 });
-        this.router.navigate(['/emprestimo']); // Volta à listagem
+        this.router.navigate(['/ativo']); // Volta à listagem
       }
       catch (error) {
         console.log(error);
@@ -90,10 +100,11 @@ export class EmprestimoFormComponent implements OnInit {
       });
 
       result = await dialogRef.afterClosed().toPromise();
+
     }
 
     if (result) {
-      this.router.navigate(['/emprestimo']); // Retorna à listagem
+      this.router.navigate(['/ativo']); // Retorna à listagem
     }
   }
 }

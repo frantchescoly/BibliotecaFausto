@@ -6,11 +6,6 @@
     </mat-form-field>
 
     <mat-form-field>
-        <textarea matInput placeholder="Endereço completo" [(ngModel)]="bibliotecaria.endereco" rows="4"
-            name="endereco"></textarea>
-    </mat-form-field>
-
-    <mat-form-field>
         <input matInput placeholder="Telefone" required [(ngModel)]="bibliotecaria.telefone" name="telefone"
             mask="(00) 000000009">
     </mat-form-field>
@@ -29,6 +24,10 @@
     <mat-form-field>
         <input matInput placeholder="CPF" required [(ngModel)]="bibliotecaria.cpf" name="cpf" mask="000.000.000-00">
     </mat-form-field>
+
+    <mat-form-field>
+            <input matInput placeholder="Tipo de Logradouro" required [(ngModel)]="enderecos.tipo" name="tipo" >
+        </mat-form-field>
 
     <mat-toolbar class="form-buttons">
         <mat-toolbar-row>

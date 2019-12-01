@@ -16,6 +16,22 @@
         <mat-datepicker #data_devolucao></mat-datepicker>
     </mat-form-field>
 
+    <mat-form-field>
+        <mat-select placeholder="Aluno" required [(ngModel)]="emprestimo.aluno" name="aluno">
+            <mat-option *ngFor="let aluno of alunos" [value]="aluno._id">
+                {{ aluno.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Bibliotecário" required [(ngModel)]="emprestimo.funcionario" name="funcionario">
+           <mat-option *ngFor="let funcionario of funcionarios" [value]="funcionario._id">
+              {{ funcionario.nome }}
+           </mat-option>
+        </mat-select>
+     </mat-form-field>
+
     <mat-toolbar class="form-buttons">
         <mat-toolbar-row>
             <button mat-raised-button type="submit" color="accent">

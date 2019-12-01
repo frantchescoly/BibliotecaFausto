@@ -9,5 +9,3 @@ router.put('/',controller.atualizar)
 router.delete('/',controller.excluir)
 
 module.exports = router
-
-
