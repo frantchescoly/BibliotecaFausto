@@ -42,7 +42,7 @@ controller.obterUm = async function(req,res){
 controller.atualizar = async function (req, res){
     const id = req.body._id
     try{
-        const ativo = await Ativo.findById(id)
+        const ativo = await Ativo.findByIdAndUpdate(id, req.body);
         if(ativo){
             res.sendStatus(204).end()
         } else{
@@ -58,7 +58,7 @@ controller.excluir = async function (req, res){
     const id = req.body._id
 
     try{
-        const ativo = await Ativo.findById(id)
+        const ativo = await Ativo.findByIdAndDelete(id)
         if(ativo){
             res.sendStatus(204).end()
         }else{

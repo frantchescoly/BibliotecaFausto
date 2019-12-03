@@ -1,4 +1,5 @@
 const Aluno= require('../models/Aluno')
+const Endereco = require('../models/Endereco');
 const controller ={}
 
 //Teste de commit;
@@ -32,8 +33,9 @@ controller.obterUm = async function(req, res){
     const id = req.params.id
     try{
         const aluno = await Aluno.findById(id)
+        const endereco = await Endereco.findById(aluno.endereco)
         if(aluno){
-            res.send(aluno)
+            res.send({ aluno, endereco })
         }
     }
     catch(erro){
