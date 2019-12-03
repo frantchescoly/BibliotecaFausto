@@ -23,7 +23,7 @@ export class EditoraService {
   }
 
   novo(editora: any) {
-    return this.http.post(env.apiUri + this.endPoint, editora).toPromise();
+    return this.http.post(env.apiUri + this.endPoint, editora,  {  responseType: 'text' }).toPromise();
   }
 
   obterUm(id: string) {

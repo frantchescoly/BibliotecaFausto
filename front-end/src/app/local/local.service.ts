@@ -22,15 +22,15 @@ export class LocalService {
       {body: {_id: id}}).toPromise();
   }
 
-  novo(editora: any) {
-    return this.http.post(env.apiUri + this.endPoint, editora).toPromise();
+  novo(local: any) {
+    return this.http.post(env.apiUri + this.endPoint, local,  {  responseType: 'text' }).toPromise();
   }
 
   obterUm(id: string) {
     return this.http.get(env.apiUri + this.endPoint + '/' + id).toPromise();
   }
 
-  atualizar(editora: any) {
-    return this.http.put(env.apiUri + this.endPoint, editora).toPromise();
+  atualizar(local: any) {
+    return this.http.put(env.apiUri + this.endPoint, local).toPromise();
   }
 }

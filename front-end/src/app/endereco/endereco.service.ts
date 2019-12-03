@@ -23,7 +23,7 @@ export class EnderecoService {
   }
 
   novo(endereco: any) {
-    return this.http.post(env.apiUri + this.endPoint, endereco).toPromise();
+    return this.http.post(env.apiUri + this.endPoint, endereco, { responseType: 'text' }).toPromise();
   }
 
   obterUm(id: string) {

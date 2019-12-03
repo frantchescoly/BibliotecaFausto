@@ -29,7 +29,7 @@ export class AtivoFormComponent implements OnInit {
   editoras: any = [];
   locais: any = [];
   locaisConcatenados: any = [];
-  anos: any = [];
+  ano: any = [];
 
 
   async ngOnInit() {
@@ -50,12 +50,13 @@ export class AtivoFormComponent implements OnInit {
       this.editoras = await this.editoraSrv.listar();
       this.locais = await this.localSrv.listar();
 
-      for (let local = 0; local < this.locais.length; local++) {
-        this.locaisConcatenados.push({ local, concatenado: `Corredor:${this.locais[local].corredor}, estante:${this.locais[local].estante}, prateleira:${this.locais[local].prateleira}` });
+      for (let local of this.locais) {
+        let id = local['_id'];
+        this.locaisConcatenados.push({ id , concatenado: `Corredor:${local.corredor}, estante:${local.estante}, prateleira:${local.prateleira}` });
       }
 
-      for (let year = 1970; year <= 2019; year++) {
-        this.anos.push({ year });
+      for (let ano = 1970; ano <= 2019; ano++) {
+        this.ano.push({ ano });
       }
     }
     catch (error) {

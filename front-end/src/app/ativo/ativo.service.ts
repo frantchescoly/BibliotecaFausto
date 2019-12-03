@@ -23,7 +23,7 @@ export class AtivoService {
   }
 
   novo(ativo: any) {
-    return this.http.post(env.apiUri + this.endPoint, ativo).toPromise();
+    return this.http.post(env.apiUri + this.endPoint, ativo, {  responseType: 'text' }).toPromise();
   }
 
   obterUm(id: string) {

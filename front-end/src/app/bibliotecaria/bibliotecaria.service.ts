@@ -23,7 +23,7 @@ export class BibliotecariaService {
   }
 
   novo(bibliotecaria: any) {
-    return this.http.post(env.apiUri + this.endPoint, bibliotecaria).toPromise();
+    return this.http.post(env.apiUri + this.endPoint, bibliotecaria, {  responseType: 'text' }).toPromise();
   }
 
   obterUm(id: string) {

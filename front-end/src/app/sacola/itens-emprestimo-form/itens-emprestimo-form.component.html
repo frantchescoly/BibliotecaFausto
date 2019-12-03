@@ -1,0 +1,32 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+
+    <mat-form-field>
+        <mat-select placeholder="Emprestimo" required [(ngModel)]="itensEmprestimo.emprestimo" name="emprestimo">
+            <mat-option *ngFor="let emprestimo of empsConcatenados" [value]="emprestimo.id">
+                {{ emprestimo.concatenado }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Ativo" required [(ngModel)]="itensEmprestimo.tombo" name="tombo">
+           <mat-option *ngFor="let ativo of ativosConcatenados" [value]="ativo.id">
+              {{ ativo.concatenado }}
+           </mat-option>
+        </mat-select>
+     </mat-form-field>
+     
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</form>

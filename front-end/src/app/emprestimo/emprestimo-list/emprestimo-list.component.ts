@@ -23,6 +23,7 @@ export class EmprestimoListComponent implements OnInit {
   async ngOnInit() {
     try {
       this.emprestimos = await this.emprestimoSrv.listar();
+      console.log(this.emprestimos);
     }
     catch (error) {
       console.error(error);

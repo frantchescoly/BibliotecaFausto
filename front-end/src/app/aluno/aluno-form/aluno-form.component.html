@@ -19,6 +19,34 @@
     </mat-form-field>
 
     <mat-form-field>
+        <input matInput placeholder="Tipo de Logradouro" required [(ngModel)]="endereco.tipoLogradouro" name="tipoLogradouro">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Logradouro" required [(ngModel)]="endereco.logradouro" name="logradouro">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Número" required [(ngModel)]="endereco.numero" name="numero">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Bairro" required [(ngModel)]="endereco.bairro" name="bairro">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Cidade" required [(ngModel)]="endereco.cidade" name="cidade">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="UF" required [(ngModel)]="endereco.uf" name="uf">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="CEP" required [(ngModel)]="endereco.cep" name="cep" mask="00.000-000">
+    </mat-form-field>
+
+    <mat-form-field>
         <input matInput [matDatepicker]="data_nascimento" placeholder="Data de nascimento"
             [(ngModel)]="aluno.dtNascimento" name="data_nascimento" required>
         <mat-datepicker-toggle matSuffix [for]="data_nascimento"></mat-datepicker-toggle>

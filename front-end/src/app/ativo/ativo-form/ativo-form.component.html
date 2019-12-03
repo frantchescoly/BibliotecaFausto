@@ -24,15 +24,15 @@
 
     <mat-form-field>
         <mat-select placeholder="Ano" required [(ngModel)]="ativo.ano" name="ano">
-            <mat-option *ngFor="let ano of anos" [value]="ano.year">
-                {{ ano.year }}
+            <mat-option *ngFor="let ano of ano" [value]="ano.ano">
+                {{ ano.ano }}
             </mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field>
         <mat-select placeholder="Local" required [(ngModel)]="ativo.local" name="local">
-            <mat-option *ngFor="let local of locaisConcatenados" [value]="local.local">
+            <mat-option *ngFor="let local of locaisConcatenados" [value]="local.id">
                 {{ local.concatenado }}
             </mat-option>
         </mat-select>
@@ -43,7 +43,7 @@
     </mat-form-field>
 
     <mat-form-field>
-        <input matInput placeholder="Descrição" required [(ngModel)]="ativo.descricao" name="edicao">
+        <input matInput placeholder="Descrição" required [(ngModel)]="ativo.descricao" name="descricao">
     </mat-form-field>
 
     <mat-form-field>

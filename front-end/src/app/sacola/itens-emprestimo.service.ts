@@ -5,36 +5,32 @@ import { environment as env } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class AlunoService {
+export class ItensEmprestimoService {
 
   constructor(private http: HttpClient) { }
 
-  private endPoint : string = 'aluno';
+  private endPoint: string = 'itensEmprestimo';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();
   }
 
-  listarEnd() {
-    return this.http.get(env.apiUri + 'endereco').toPromise();
-  }
-
   excluir(id: string) {
     // HttpClient.delete() não permite passar um parâmetro body.
     // Por isso, aqui usamos HttpClient.request('delete', ...).
-    return this.http.request('delete', env.apiUri + this.endPoint, 
-      {body: {_id: id}}).toPromise();
+    return this.http.request('delete', env.apiUri + this.endPoint,
+      { body: { _id: id } }).toPromise();
   }
 
-  novo(aluno: any) {
-    return this.http.post(env.apiUri + this.endPoint, aluno, {  responseType: 'text' }).toPromise();
+  novo(itensEmprestimo: any) {
+    return this.http.post(env.apiUri + this.endPoint, itensEmprestimo, {  responseType: 'text' }).toPromise();
   }
 
   obterUm(id: string) {
     return this.http.get(env.apiUri + this.endPoint + '/' + id).toPromise();
   }
 
-  atualizar(aluno: any) {
-    return this.http.put(env.apiUri + this.endPoint, aluno).toPromise();
+  atualizar(itensEmprestimo: any) {
+    return this.http.put(env.apiUri + this.endPoint, itensEmprestimo).toPromise();
   }
 }

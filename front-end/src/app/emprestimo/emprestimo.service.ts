@@ -24,7 +24,7 @@ export class EmprestimoService {
   }
 
   novo(emprestimo: any) {
-    return this.http.post(env.apiUri + this.endPoint, emprestimo).toPromise();
+    return this.http.post(env.apiUri + this.endPoint, { responseType: 'text' }).toPromise();
   }
 
   obterUm(id: string) {

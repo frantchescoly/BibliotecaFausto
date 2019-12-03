@@ -45,6 +45,8 @@ import { LocalFormComponent } from './local/local-form/local-form.component';
 import { LocalListComponent } from './local/local-list/local-list.component';
 import { AtivoFormComponent } from './ativo/ativo-form/ativo-form.component';
 import { AtivoListComponent } from './ativo/ativo-list/ativo-list.component';
+import { ItensEmprestimoFormComponent } from './sacola/itens-emprestimo-form/itens-emprestimo-form.component';
+import { ItensEmprestimoListComponent } from './sacola/itens-emprestimo-list/itens-emprestimo-list.component';
 
 
 @NgModule({
@@ -71,6 +73,8 @@ import { AtivoListComponent } from './ativo/ativo-list/ativo-list.component';
     LocalListComponent,
     AtivoFormComponent,
     AtivoListComponent,
+    ItensEmprestimoFormComponent,
+    ItensEmprestimoListComponent,
   ],
   imports: [
     HttpClientModule,

@@ -13,6 +13,8 @@ import { LocalFormComponent } from './local/local-form/local-form.component';
 import { LocalListComponent } from './local/local-list/local-list.component';
 import { AtivoFormComponent } from './ativo/ativo-form/ativo-form.component';
 import { AtivoListComponent } from './ativo/ativo-list/ativo-list.component';
+import { ItensEmprestimoFormComponent } from './sacola/itens-emprestimo-form/itens-emprestimo-form.component';
+import { ItensEmprestimoListComponent } from './sacola/itens-emprestimo-list/itens-emprestimo-list.component';
 
 const routes: Routes = [
   { path: 'aluno', component: AlunoListComponent },
@@ -41,6 +43,9 @@ const routes: Routes = [
   { path: 'ativo/novo', component: AtivoFormComponent },
   { path: 'ativo/:id', component: AtivoFormComponent },
 
+  { path: 'itensEmprestimo', component: ItensEmprestimoListComponent },
+  { path: 'itensEmprestimo/novo', component: ItensEmprestimoFormComponent },
+  { path: 'itensEmprestimo/:id', component: ItensEmprestimoFormComponent },
 ];
 
 @NgModule({
